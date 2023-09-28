@@ -1,0 +1,353 @@
+/*---- Common ----*/
+body {
+  font-family: 'Geologica', sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto; /*--Move to center, The first number is margin Top and Bottom, Auto this mean margin left and right are average to the same size--*/
+  padding: 0 24px;
+}
+
+@media screen and (max-width: 512px) {
+  .container {
+    padding: 0 12px;
+  }
+}
+
+.section {
+  margin-bottom: 64px;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+/*---- Menu ----*/
+.logo {
+  height: 20px;
+}
+
+.menu-bar-wrapper {
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: white;
+  z-index: 1000; /*--The highest Z-index value is at the front--*/
+}
+
+.menu-bar {
+  display: flex; /*--It will change menubar to horizontal--*/
+  justify-content: space-between;   /*--It will make space between content in menubar to the same size in horizontal--*/
+  align-items: center; /*--It will moved logo to the center of vertical--*/
+  height: 72px;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-bar {
+    height: 96px;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+}
+
+.nav-list {
+  display: flex;
+}
+
+.nav-item:not(first-child) {  /*--This code will combine between 'Class selector' and 'Pseudo' --*/
+  margin-left: 24px;
+}
+
+.nav-link {
+ text-transform: uppercase; 
+ text-decoration: none; /*--Get rid of under-line--*/
+ color: black;
+}
+
+.nav-link:hover {   /*--Change color when hover on link--*/
+  color: #f87060;
+}
+
+.nav-link:active {  /*--Change color when click on link--*/
+  opacity: 0.5;
+}
+
+/*---- Hero Section ----*/
+.hero-section {
+  background-image: linear-gradient(to right, rgba(0,0,0,0.2), rgba(0,0,0,0)), url('../images/hero-background.jpg'); /* Photo by Nicholas Kampouris on Unsplash */
+  background-size: cover;
+  background-position: center center;
+  height: 720px;
+}
+
+.hero-title {
+  font-size: 64px;
+  font-weight: 600;
+  padding-top: 128px;
+  color: white;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 512px) {
+  .hero-title {
+    font-size: 48px;
+  }
+}
+
+/*---- Collection Section ----*/
+.collection-item {
+  background-size: cover;
+  background-position: 50% 82%;
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.collection-item-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.collection-list {
+  display: grid;
+  row-gap: 16px;
+  column-gap: 16px;
+  grid-row-gap: 16px; /*--For support old browser--*/
+  grid-column-gap: 16px; /*--For support old browser--*/
+
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 
+  'classic classic sport sandal'
+  'classic classic casual casual'  ;
+}
+
+@media screen and (max-width: 768px) {  /*--Responsive--*/
+  .collection-list {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    'classic classic sport sport'
+    'sandal sandal casual casual'  ;
+  }
+}
+
+@media screen and (max-width: 512px) {
+  .collection-list {
+    display: flex;
+    flex-direction:column;   
+  }
+}
+
+.collection-item-one {
+  background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0.1)),
+    url('../images/classic-collection.jpg'); /* Photo by NordWood Themes on Unsplash */
+  grid-area: classic;
+
+}
+
+.collection-item-two {
+  background-image: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.2)
+    ),
+    url('../images/sport-collection.jpg'); /* Photo by Tom Radetzki on Unsplash */
+  grid-area: sport;
+}
+
+.collection-item-three {
+  background-image: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.3)
+    ),
+    url('../images/sandal-collection.jpg'); /* Photo by Andy Garza on Unsplash */
+  grid-area: sandal;
+}
+
+.collection-item-four {
+  background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.2)),
+    url('../images/casual-collection.jpg'); /* Photo by Trendest Studio on Unsplash */
+  grid-area: casual;
+}
+
+
+/*---- Product Section ----*/
+.product-list {
+  display: grid;
+  row-gap: 16px;
+  column-gap: 32px;
+  grid-row-gap: 16px; /*--For support old browser--*/
+  grid-column-gap: 16px; /*--For support old browser--*/
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media screen and (max-width: 768px) {
+  .product-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}  
+
+@media screen and (max-width: 512px) {
+  .product-list {
+    grid-template-columns: 1fr;
+
+  }
+}  
+
+.product-item {
+  width: 100%;
+  position: relative;
+}
+
+.product-label {
+  background-color: #f87060;
+  color: white;
+  font-weight: 600;
+  border-radius: 6px;
+  width: fit-content;
+  padding: 12px;
+  position: absolute;
+  top: 24px;
+  left: -8px;
+}
+
+.product-item-image {
+  width: 100%;
+  height: 250px;
+  border-radius: 8px;
+  object-fit: cover; /*--Fix image fit layout--*/
+  margin-bottom: 12px;
+}
+
+.product-item-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.price {
+margin-top: 24px;
+}
+
+.price::after {
+  content: ' Baht';
+}
+
+
+/*---- About Section ----*/
+.about-content {
+  display: flex;
+}
+
+
+.about-image {
+  width: 50%; 
+  height: 300px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-right: 24px;
+}
+
+
+.about-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.about-description {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+@media screen and (max-width: 768px) { /*----For responsive web ,It should be the last line in each section to invoid overlapping style----*/
+  .about-content {
+    flex-direction: column;
+  }
+  .about-image {
+    width: 100%;
+    margin-right: 0px;
+    margin-bottom: 24px;
+  }
+  .about-description {
+    margin-bottom: 24px;
+  }
+}
+
+.button {
+  display: block;
+  background-color: #f87060;
+  color: white;
+  text-transform: uppercase;
+  width: fit-content;
+  padding: 12px 16px;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.button:hover {  /*----Hover effect by Pseudo class----*/
+  opacity: 0.6;
+}
+
+.button:active {  /*----Click effect by Pseudo class----*/
+  opacity: 0.9;
+}
+
+/*---- Social Section ----*/
+.social-list {
+position: fixed;
+right: 72px;
+bottom: 60px;
+}
+
+.social-logo {
+width: 60px;  
+}
+
+
+@media screen and (max-width: 768px) {
+  .social-list {
+    display: none;  /*----Hide social list----*/
+  }
+}
+
+/*----Footer section----*/
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+@media screen and (max-width: 512px) {
+  .footer {
+    justify-content: center;
+  }
+}
+
+/*---- Effect----*/
+.hover-interaction {   /*----Pseudo class----*/
+  transition: box-shadow 0.1s ease-out 0s, transform 0.1s ease-out 0s;  /*--The 'Transition' it will make delay animation of element when moved-- */
+  cursor: pointer;   /*--Changed 'Cursor' from 'arrow' to 'Hand-click'--*/
+}
+
+.hover-interaction:hover {  /*----Pseudo class----*/
+  box-shadow: rgba(32, 32, 32, 0.05) 0px 16px 16px 0px,
+    rgba(42, 42, 42, 0.05) 0px 8px 8px 0px,
+    rgba(49, 49, 49, 0.05) 0px 4px 4px 0px,
+    rgba(45, 45, 45, 0.05) 0px 2px 2px 0px,
+    rgba(35, 35, 35, 0.05) 0px 64px 64px 0px,
+    rgba(49, 49, 49, 0.05) 0px 32px 32px 0px;
+  transform: translateY(-10px);     /*--Moved up and down in the Y-axis--*/
+}
+
+.hover-interaction:active {  /*----Pseudo class----*/
+  box-shadow: none;
+}
